@@ -1,5 +1,18 @@
-<h1>Contact#sendmail_user</h1>
-
-<p>
-  <%= @greeting %>, find me in app/views/contact_mailer/sendmail_user.html.erb
-</p>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1><%= @contact.name %>様、お問い合わせありがとうございます</h1>
+    <div>
+      <p>お問い合わせ内容の確認</p>
+      <ul>
+        <li>カテゴリー:</li>
+        <p><%= @contact.category %></p>
+        <li>内容</li>
+        <p><%= @contact.content %></p>
+      </ul>
+    </div>
+  </body>
+</html>

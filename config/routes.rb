@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
-  get 'contacts/new'
-  get 'contacts/confirm'
-  get 'contacts/back'
-  get 'contacts/create'
+  post 'contacts/confirm', to: 'contacts#confirm',as: 'confirm'
+  post 'contacts/back', to:"contacts#back",as:"back"
+  resources :contacts
   resources :blogs
 end

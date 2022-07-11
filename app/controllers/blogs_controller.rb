@@ -18,7 +18,7 @@ class BlogsController < ApplicationController
 
   # GET /blogs/1/edit
   def edit
-  
+
   end
 
   # POST /blogs or /blogs.json
@@ -27,7 +27,7 @@ class BlogsController < ApplicationController
     respond_to do |format|
       if @blog.save
         NoticeMailer.sendmail_blog(@blog).deliver #追記
-        format.html { redirect_to blog_url(@blog), notice: "Blog was successfully created." }
+        format.html { redirect_to blog_url(@blog), notice: 'Blog was successfully created.' }
         format.json { render :show, status: :created, location: @blog }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -40,7 +40,7 @@ class BlogsController < ApplicationController
   def update
     respond_to do |format|
       if @blog.update(blog_params)
-        format.html { redirect_to blog_url(@blog.id), notice: "Blog was successfully updated." }
+        format.html { redirect_to blog_url(@blog.id), notice: 'Blog was successfully updated.' }
         format.json { render :show, status: :ok, location: @blog }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -53,7 +53,7 @@ class BlogsController < ApplicationController
   def destroy
     @blog.destroy
     respond_to do |format|
-      format.html { redirect_to blogs_url, notice: "Blog was successfully destroyed." }
+      format.html { redirect_to blogs_url, notice: 'Blog was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

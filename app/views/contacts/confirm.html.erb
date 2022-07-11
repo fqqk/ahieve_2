@@ -1,2 +1,42 @@
-<h1>Contacts#confirm</h1>
-<p>Find me in app/views/contacts/confirm.html.erb</p>
+
+<h1>お問い合わせ内容確認</h1>
+
+
+<div>
+  <p>
+    <strong>名前:</strong>
+    <%= @contact.name %>
+  </p>
+
+  <p>
+    <strong>メールアドレス:</strong>
+    <%= @contact.email %>
+  </p>
+
+  <p>
+    <strong>カテゴリー:</strong>
+    <%= @contact.category %>
+  </p>
+
+  <p>
+    <strong>内容:</strong>
+    <%= @contact.content %>
+  </p>
+
+  <%= form_for(@contact) do |f| %>
+    <%= f.hidden_field :name %>
+    <%= f.hidden_field :email %>
+    <%= f.hidden_field :category %>
+    <%= f.hidden_field :content %>
+    
+    <div><%= f.submit '送信' %></div>
+  <% end %>
+  <%= form_for @contact, url: back_path,data: { turbo: false } do |f| %>
+    <%= f.hidden_field :name %>
+    <%= f.hidden_field :email %>
+    <%= f.hidden_field :category %>
+    <%= f.hidden_field :content %>
+    <div><%= f.submit '入力画面に戻る' %></div>
+  <% end %>
+
+</div>
