@@ -1,6 +1,6 @@
 <%= form_for(contact, url: confirm_path,data: { turbo: false }) do |form| %>
 
-<% if contact.errors.any? %>
+  <% if contact.errors.any? %>
     <div style="color: red">
       <h2><%= pluralize(contact.errors.count, "error") %> prohibited this blog from being saved:</h2>
 
@@ -27,15 +27,15 @@
   <div>
     <%= form.label :category, style: "display: block" %>
     <%= form.radio_button :category, :achieve %>
-    <%= form.label :category, "Achieve", {value: :achieve, style: "display: inline-block;"} %>
+    <%= form.label :category, "Achieve", {value: :achieve, style: "display: inline-block"} %>
     <%= form.radio_button :category, :text %>
-    <%= form.label :category, "テキスト", {value: :text, style: "display: inline-block;"} %>
+    <%= form.label :category, "テキスト", {value: :text, style: "display: inline-block"} %>
   </div>
   <div>
-   <%= form.radio_button :category, :briefing %>
-    <%= form.label :category, "説明会", {value: :briefing, style: "display: inline-block;"} %>
+    <%= form.radio_button :category, :briefing %>
+    <%= form.label :category, "説明会", {value: :briefing, style: "display: inline-block"} %>
     <%= form.radio_button :category, :other %>
-    <%= form.label :category, "その他", {value: :other, style: "display: inline-block;"} %>
+    <%= form.label :category, "その他", {value: :other, style: "display: inline-block"} %>
   </div>
 
   </div>
@@ -46,7 +46,7 @@
   </div>
 
   <div>
-    <%= form.submit '入力内容確認',class:"btn btn-default" %>
+    <%= form.submit '入力内容確認', class:"btn btn-default" %>
   </div>
 
 

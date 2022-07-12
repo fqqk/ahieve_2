@@ -7,12 +7,10 @@
     <h1><%= @contact.name %>様、お問い合わせありがとうございます</h1>
     <div>
       <p>お問い合わせ内容の確認</p>
-      <ul>
-        <li>カテゴリー:</li>
-        <p><%= @contact.category %></p>
-        <li>内容</li>
-        <p><%= @contact.content %></p>
-      </ul>
+      <p>カテゴリー</p>
+      <p><%= @contact.category %></p>
+      <p>内容</p>
+      <p><%= @contact.content %></p>
     </div>
   </body>
 </html>

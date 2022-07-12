@@ -1,6 +1,6 @@
 class BlogsController < ApplicationController
   # %i[ show edit update destroy ] = [:show, :edit, :update, :destroy]
-  before_action :set_blog, only: %i[ show edit update destroy ]
+  before_action :set_blog, only: %i[show edit update destroy]
 
   # GET /blogs or /blogs.json
   def index
@@ -8,8 +8,7 @@ class BlogsController < ApplicationController
   end
 
   # GET /blogs/1 or /blogs/1.json
-  def show
-  end
+  def show; end
 
   # GET /blogs/new
   def new
@@ -17,16 +16,14 @@ class BlogsController < ApplicationController
   end
 
   # GET /blogs/1/edit
-  def edit
-
-  end
+  def edit; end
 
   # POST /blogs or /blogs.json
   def create
     @blog = Blog.new(blog_params)
     respond_to do |format|
       if @blog.save
-        NoticeMailer.sendmail_blog(@blog).deliver #追記
+        NoticeMailer.sendmail_blog(@blog).deliver # 追記
         format.html { redirect_to blog_url(@blog), notice: 'Blog was successfully created.' }
         format.json { render :show, status: :created, location: @blog }
       else
@@ -59,13 +56,13 @@ class BlogsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_blog
-      @blog = Blog.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def blog_params
-      params.require(:blog).permit(:title, :content)
-    end
+  def set_blog
+    @blog = Blog.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def blog_params
+    params.require(:blog).permit(:title, :content)
+  end
 end

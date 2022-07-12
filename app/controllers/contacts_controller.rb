@@ -4,24 +4,20 @@ class ContactsController < ApplicationController
   end
 
   def confirm
-    @contact = Contact.new(contact_params)
-    if @contact.invalid?
-      render :new
-    end
-
-
+    set_contact
+    render :new if @contact.invalid?
   end
 
   def back
-    @contact = Contact.new(contact_params)
+    set_contact
     render :new
   end
 
   def create
-    @contact = Contact.new(contact_params)
+    set_contact
     if @contact.save
       ContactMailer.sendmail_user(@contact).deliver
-      redirect_to "/blogs", notice: "お問い合わせありがとうございます！"
+      redirect_to blogs_url, notice: 'お問い合わせありがとうございます！'
     else
       render :new
     end
@@ -31,5 +27,9 @@ class ContactsController < ApplicationController
 
   def contact_params
     params.require(:contact).permit(:name, :email, :category, :content)
+  end
+
+  def set_contact
+    @contact = Contact.new(contact_params)
   end
 end
