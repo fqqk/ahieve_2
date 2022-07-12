@@ -28,7 +28,7 @@
     <%= f.hidden_field :email %>
     <%= f.hidden_field :category %>
     <%= f.hidden_field :content %>
-    
+
     <div><%= f.submit '送信' %></div>
   <% end %>
   <%= form_for @contact, url: back_path,data: { turbo: false } do |f| %>
