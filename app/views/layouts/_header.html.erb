@@ -1,9 +1,10 @@
 <header>
+   <%= link_to "お問い合わせ", new_contact_path, class: 'btn btn-default' %>
+   <p><%= link_to "Home", root_path %></p>
+   <p><%= link_to "blog一覧", blogs_path %></p>
  <% if user_signed_in? %>
    <p class="notice"><%= notice %></p>
    <p><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></p>
    <p><%= link_to "プロフィール編集", edit_user_registration_path, method: :delete %></p>
-   <%= link_to "お問い合わせ", new_contact_path, class: 'btn btn-default' %>
-   <p><%= link_to "Home", root_path %></p>
  <% end %>
 </header>
