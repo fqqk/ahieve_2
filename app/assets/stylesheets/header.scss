@@ -1,0 +1,17 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index:1;
+  width: 100%;
+ nav {
+  z-index: 100;
+  padding: 1.5rem;
+  background-color: black;
+  p {
+    font-size: medium;
+    font-weight: bold;
+    margin: 0 15px;
+  }
+ }
+}

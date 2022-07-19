@@ -1,16 +1,15 @@
-<header class="">
-<div class="d-flex justify-content-between bg-dark p-2 container">
-  <div class="menu d-flex">
-    <p><%= link_to "Home", root_path, class:"mx-2"%></p>
-    <p><%= link_to "blogs", blogs_path, class:"mx-2" %></p>
-    <p><%= link_to "contact", new_contact_path, class:"mx-2" %></p>
+<header class="header">
+<nav class="d-flex justify-content-between bg-dark">
+  <div class="d-flex">
+    <p><%= link_to "Home", root_path%></p>
+    <p><%= link_to "blogs", blogs_path %></p>
+    <p><%= link_to "contact", new_contact_path %></p>
   </div>
-  <div class="my_menu d-flex">
+  <div class="d-flex">
      <% if user_signed_in? %>
-     <p><%= link_to "logout", destroy_user_session_path, method: :delete, class:"mx-2" %></p>
-     <p><%= link_to "edit-prof", edit_user_registration_path, method: :delete, class:"mx-2" %></p>
+     <p><%= link_to "logout", destroy_user_session_path, method: :delete %></p>
+     <p><%= link_to "edit-prof", edit_user_registration_path, method: :delete %></p>
      <% end %>
   </div>
-</div>
-
+</nav>
 </header>
