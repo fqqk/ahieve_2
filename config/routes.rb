@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root to: "index"
   get 'users/index'
   get 'users/show'
   root to: 'blogs#index'
