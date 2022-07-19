@@ -12,11 +12,9 @@
   </head>
 
   <body>
-    <% if user_signed_in? %>
-      <p><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></p>
-      <p><%= link_to "プロフィール編集", edit_user_registration_path, method: :delete %></p>
-    <% end %>
+    <%= render "layouts/header" %>
     <p class="alert"><%= alert %></p>
     <%= yield %>
+    <%= render "layouts/footer" %>
   </body>
 </html>
