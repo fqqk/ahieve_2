@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'users/index'
+  get 'users/show'
   root to: 'blogs#index'
   devise_for :users
   post 'contacts/confirm', to: 'contacts#confirm', as: 'confirm'
