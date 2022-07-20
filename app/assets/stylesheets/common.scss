@@ -1,7 +1,12 @@
 html > body {
-  background-color: pink; /* ここを変更 */
+  background-color: #D6DBDC;
   color: #333;
   font-family: verdana, arial, helvetica, sans-serif;
   font-size: 0.8rem;
   line-height: 18px;
+  height: 100vh;
+}
+
+.header-h {
+  margin-top: 80px;
 }
