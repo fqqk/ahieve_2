@@ -1,9 +1,12 @@
-<p style="color: green"><%= notice %></p>
-
-<h1>Listing Blogs</h1>
-
-<div id="blogs">
-  <% @blogs.each do |blog| %>
-    <%= render blog %>
-  <% end %>
+<div class="body-y-margin container w-50">
+  <p class="notice"><%= notice %></p>
+  <h1>Listing Blogs</h1>
+  <div id="new-blog-link">
+    <%= link_to '新規ブログを作成する', new_blog_path %>
+  </div>
+  <div id="blogs">
+    <% @blogs.each do |blog| %>
+      <%= render blog %>
+    <% end %>
+  </div>
 </div>
