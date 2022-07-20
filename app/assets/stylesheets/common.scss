@@ -4,9 +4,36 @@ html > body {
   font-family: verdana, arial, helvetica, sans-serif;
   font-size: 0.8rem;
   line-height: 18px;
-  height: 100vh;
 }
 
 .header-h {
+  margin-top: 80px;
+}
+
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index:1;
+  width: 100%;
+ nav {
+  z-index: 100;
+  padding: 1.5rem;
+  background-color: black;
+  p {
+    font-size: medium;
+    font-weight: bold;
+    margin: 0 15px;
+    .item {
+      color: #46BCDE;
+    }
+  }
+ }
+}
+
+.footer {
+  background-color: black;
+  padding: 1rem;
   margin-top: 80px;
 }
