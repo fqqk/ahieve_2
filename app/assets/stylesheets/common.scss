@@ -4,10 +4,12 @@ html > body {
   font-family: verdana, arial, helvetica, sans-serif;
   font-size: 0.8rem;
   line-height: 18px;
+  position: relative;
 }
 
-.header-h {
+.body-y-margin {
   margin-top: 80px;
+  margin-bottom: 50px;
 }
 
 
@@ -33,7 +35,9 @@ html > body {
 }
 
 .footer {
+  width: 100%;
   background-color: black;
   padding: 1rem;
-  margin-top: 80px;
+  position: relative;
+  bottom: 0;
 }
