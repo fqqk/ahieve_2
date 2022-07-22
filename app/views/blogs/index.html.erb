@@ -2,12 +2,16 @@
   <p class="notice"><%= notice %></p>
   <h1 class="fw-bold">Listing Blogs</h1>
   <div id="new-blog-link">
-    <p class="links-style"><%= link_to '新規ブログ作成', new_blog_path %></p>
+    <p class="links-style fw-bold"><%= link_to '新規ブログ作成', new_blog_path %></p>
   </div>
-  <div class="row row-cols-2">
-    <% @blogs.each do |blog| %>
-      <%= render blog %>
-      <p class="show-btn"><%= link_to 'Show', blog, class: 'btn btn-primary' %></p>
-    <% end %>
+  <div class="row row-col">
+        <% @blogs.each do |blog| %>
+        <div class="d-flex flex-column col-xs-1 col-lg-6">
+          <%= render blog %>
+          <div class="show-btn d-flex justify-content-end">
+            <%= link_to 'Show', blog, class: 'btn btn-primary' %>
+          </div>
+        </div>
+        <% end %>
     </div>
 </div>
