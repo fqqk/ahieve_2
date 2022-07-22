@@ -1,7 +1,8 @@
 class BlogsController < ApplicationController
   # %i[ show edit update destroy ] = [:show, :edit, :update, :destroy]
   before_action :set_blog, only: %i[show edit update destroy]
-  before_action :authenticate_user!, only: %i[ show edit create update destroy ]
+  before_action :authenticate_user!, only: %i[ new edit create update destroy ]
+
 
   # GET /blogs or /blogs.json
   def index

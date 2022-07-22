@@ -5,7 +5,7 @@
     <p class="links-style d-inline"><%= link_to "Edit this blog", edit_blog_path(@blog) %> |</p>
     <p class="links-style d-inline"><%= link_to "Back to blogs", blogs_path %></p>
     <div class="float-end">
-      <%= button_to "Destroy this blog", @blog, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
+      <%= button_to "Destroy this blog", @blog, method: :delete, class: 'btn btn-danger',form: { data: { turbo_confirm: "Are you sure?" } } %>
     </div>
   </div>
 </div>
