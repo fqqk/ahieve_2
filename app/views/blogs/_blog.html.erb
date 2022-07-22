@@ -1,14 +1,10 @@
-<div class="container">
-  <div class="row">
-    <div class="blog-panel">
+
+  <div class="blog-panel col-xs-1 col-lg-6">
+    <div class="d-flex align-items-baseline border-bottom border-dark">
       <h2><%= blog.title %></h2>
-      <p><%= blog.content %></p>
-      <p><%= blog.created_at %></p>
-      <div class="blog-links">
-        <%= link_to 'Show', blog, class: 'btn btn-primary' %>
-        <%= link_to 'Edit', edit_blog_path(blog), class: 'btn btn-info' %>
-        <%= link_to 'Destroy', blog, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
-      </div>
+      <p class="ms-3"><%= blog.created_at %></p>
+    </div>
+    <div class="blogs-content-box">
+      <p class="blogs-content"><%= blog.content %></p>
     </div>
   </div>
-</div>
