@@ -4,7 +4,6 @@ class ApplicationController < ActionController::Base
   protected
 
   def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:name]) # 新規登録時にnameというキーのパラメーターを追加で許可する
     devise_parameter_sanitizer.permit(:account_update, keys: [:name]) #  更新時にnameというキーのパラメーターを追加で許可する
     devise_parameter_sanitizer.permit(:account_update, keys: [:icon]) #iconキーのパラメータをアカウントアップデート時に許可
   end
