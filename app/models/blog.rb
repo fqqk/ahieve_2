@@ -5,8 +5,8 @@ class Blog < ApplicationRecord
   validates :content, presence: true, length: { maximum: 140 }
 
   scope :index_all, -> {
-    select(:id, :title, :content, :created_at) #フィールドごとにレコードを取得
-    .order(created_at: :asc) #created_atカラムの昇順に並び替え
+    select(:id, :title, :content, :updated_at, :user_id) #フィールドごとにレコードを取得
+    .order(updated_at: :asc) #created_atカラムの昇順に並び替え
     .includes(:user) #ユーザを事前に取得してN+1防止
   }
 end
