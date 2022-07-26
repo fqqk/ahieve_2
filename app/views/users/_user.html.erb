@@ -1,0 +1,7 @@
+<div class="text-center ">
+    <p class="mb-3 fw-bold fs-4"><%= user.name%></p>
+     <div class="mb-2">
+        <%= image_tag(user.icon, size: "150x150", class: "rounded-circle" ) if user.icon.attached? %>
+     </div>
+    <p class="links-style d-inline"><%= link_to "Show", user_path(user) %></p>
+</div>

@@ -1,2 +1,11 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<div class="body-y-margin container w-75">
+  <h2 class="fw-bold text-center mb-5">User</h2>
+  <div class="text-center">
+    <p class="mb-3 fw-bold fs-4"><%= @user.name%></p>
+     <div class="mb-2">
+        <%= image_tag(@user.icon,width: "200px",height: "200px",  class: "rounded-circle") if @user.icon.attached? %>
+     </div>
+     <p class="mb-3 fw-bold"><%= @user.email%></p>
+    <p class="links-style d-inline"><%= link_to "back", users_path %></p>
+</div>
+</div>
