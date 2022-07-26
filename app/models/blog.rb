@@ -1,5 +1,6 @@
 class Blog < ApplicationRecord
   belongs_to :user
+  has_many :comments, dependent: :destroy
   paginates_per 10
   validates :title, presence: true
   validates :content, presence: true, length: { maximum: 140 }
