@@ -10,7 +10,10 @@ class BlogsController < ApplicationController
   end
 
   # GET /blogs/1 or /blogs/1.json
-  def show; end
+  def show
+    @comment = Comment.new
+    @comments = @blog.comments.page(params[:page]).per(7).reverse_order
+  end
 
   # GET /blogs/new
   def new
