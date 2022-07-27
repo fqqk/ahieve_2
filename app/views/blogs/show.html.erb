@@ -5,29 +5,31 @@
   <%# コメント送る部分 %>
 
   <div class="comments ml-5 mt-5">
-        <%= form_with(model:[@blog, @comment], local: true) do |f| %>
-        <%= f.text_area :comment, :size=>"60x3",placeholder: "コメントする" %>
-        <%= f.submit "送信する", class: "btn btn-success mb-4" %>
-        <% end %>
+    <%= form_with(model: [@blog, @comment], local: true) do |f| %>
+      <%= f.label :comment %>
+      <%= f.text_area :comment, :size=>"60x3",placeholder: "コメントする" %>
+      <%= f.hidden_field :blog_id, value: @blog.id %>
+      <%= f.submit "投稿", class: "btn btn-success mb-4" %>
+    <% end %>
 
-        <p>コメント件数：<%= @comments.count %></p>
-          <% @comments.each do |comment| %>
-	  <div class="comments-index mb-2">
-          <%= comment.user.name %>
-          <%= comment.created_at.strftime('%Y/%m/%d') %><br>
+    <p>コメント件数：<%= @comments.count %></p>
+    <% @comments.each do |comment| %>
+      <div class="comments-index mb-2">
+        <%= comment.user.name %>
+        <%= comment.created_at.strftime('%Y/%m/%d') %><br>
           <div class="d-flex">
             <%= comment.comment %>
-            <% if comment.user == current_user %>
-            <div class="comment-delete">
-              <%= button_to "delete", blog_comment_path(comment.blog, comment), method: :delete, class: 'btn btn-danger',form: { data: { turbo_confirm: "Are you sure?" } } %>
+              <% if comment.user == current_user %>
+                <div class="comment-delete">
+                  <%= button_to "delete", blog_comment_path(comment.blog, comment), method: :delete, class: 'btn btn-danger',form: { data: { turbo_confirm: "Are you sure?" } } %>
+                </div>
             </div>
-          </div>
         </div>
-        <% end %>
-        <% end %>
-        <%= paginate @comments %>
+              <% end %>
+    <% end %>
+    <%= paginate @comments %>
       </div>
-    </div>
+  </div>
 
   <%# コメント送る部分 %>
 
@@ -38,4 +40,5 @@
       <%= button_to "delete", @blog, method: :delete, class: 'btn btn-danger',form: { data: { turbo_confirm: "Are you sure?" } } %>
     </div>
   </div>
+
 </div>
