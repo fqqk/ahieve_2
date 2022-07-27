@@ -19,7 +19,7 @@
             <%= comment.comment %>
             <% if comment.user == current_user %>
             <div class="comment-delete">
-              <%= link_to "削除", blog_comment_path(comment.blog, comment), method: :delete, class: "btn-sm btn-danger" %>
+              <%= button_to "delete", blog_comment_path(comment.blog, comment), method: :delete, class: 'btn btn-danger',form: { data: { turbo_confirm: "Are you sure?" } } %>
             </div>
           </div>
         </div>

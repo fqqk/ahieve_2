@@ -5,7 +5,7 @@ class CommentsController < ApplicationController
     comment.blog_id = blog.id
     comment.save
     respond_to do |format|
-      format.html { redirect_to  blog_path(blog), notice: 'Comment was successfully created.' }
+      format.html { redirect_to blog_path(blog), notice: 'Comment was successfully created.' }
       format.json { head :no_content }
     end
   end
@@ -13,7 +13,7 @@ class CommentsController < ApplicationController
   def destroy
     Comment.find_by(id: params[:id], blog_id: params[:blog_id]).destroy
     respond_to do |format|
-      format.html { redirect_to  blog_path(params[:blog_id]), notice: 'Comment was successfully destroyed.' }
+      format.html { redirect_to blog_path(params[:blog_id]), notice: 'Comment was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
