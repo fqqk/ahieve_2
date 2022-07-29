@@ -9,5 +9,6 @@ Rails.application.routes.draw do
   resources :blogs do
     resources :comments, only:[:create, :destroy, :update, :edit]
   end
+  resources :favorites, only: [:create, :destroy]
   mount LetterOpenerWeb::Engine, at: '/letter_opener' if Rails.env.development?
 end
