@@ -11,5 +11,6 @@ class User < ApplicationRecord
   scope :index_all, -> {
     select(:id, :name, :email)
     .order(id: :asc)
+    .includes(:blogs)
   }
 end
