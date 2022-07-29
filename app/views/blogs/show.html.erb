@@ -6,13 +6,24 @@
 
   <div class="comments ml-5 mt-5">
     <%= form_with(model: [@blog, @comment], local: true) do |f| %>
+      <% if @comment.errors.any? %>
+        <div style="color: red">
+        <h2><%= pluralize(@comment.errors.count, "error") %> prohibited this comment from being saved:</h2>
+        <ul>
+          <% @comment.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+          <% end %>
+        </ul>
+        </div>
+      <% end %>
+
       <%= f.label :comment %>
       <%= f.text_area :comment, :size=>"60x3",placeholder: "コメントする" %>
       <%= f.hidden_field :blog_id, value: @blog.id %>
       <%= f.submit "投稿", class: "btn btn-success mb-4" %>
     <% end %>
 
-    <p>コメント件数：<%= @comments.count %></p>
+    <p>コメント件数：<%= @comments.count %>/<%= @blog.comments.count%></p>
     <% @comments.each do |comment| %>
       <div class="comments-index mb-2">
         <%= comment.user.name %>
@@ -23,6 +34,7 @@
                 <div class="comment-delete">
                   <%= button_to "delete", blog_comment_path(comment.blog, comment), method: :delete, class: 'btn btn-danger',form: { data: { turbo_confirm: "Are you sure?" } } %>
                 </div>
+                <%= link_to "edit", edit_blog_comment_path(comment.blog, comment), class: 'btn btn-primary' %>
             </div>
         </div>
               <% end %>

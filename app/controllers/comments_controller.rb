@@ -1,10 +1,10 @@
 class CommentsController < ApplicationController
-  before_action :set_comment,:set_blog, only: %i[ destroy ]
+  before_action :set_comment, only: %i[ edit update destroy ]
+  before_action :set_blog, only: %i[ destroy ]
 
   def create
     #リファクタ中
     # @blog = Blog.find(params[:blog_id])
-
     comment = current_user.comments.new(comment_params)
     # comment.blog_id = @blog.id
     if comment.save
@@ -17,10 +17,26 @@ class CommentsController < ApplicationController
     end
   end
 
+  def edit
+
+  end
+
+
+  def update
+    respond_to do |format|
+      if @comment.update(comment_params)
+        format.html { redirect_to blog_url(@comment.blog_id), notice: 'Comment was successfully updated.' }
+        format.json { render :show, status: :ok, location: @comment }
+      else
+        format.html { render :edit, status: :unprocessable_entity }
+        format.json { render json: @comment.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
   def destroy
     if @comment.destroy
       respond_to do |format|
-
         format.html { redirect_to blog_path(@blog), notice: 'Comment was successfully destroyed.' }
         format.json { head :no_content }
       end
