@@ -1,0 +1,17 @@
+.my_prof {
+  .hiragana {
+    margin: 0;
+    font-size: medium;
+  }
+  .prof-title {
+    font-weight: bold;
+    span {
+      font-size: medium;
+    }
+  }
+}
+
+.title {
+  border-bottom: 1px solid black;
+  font-weight: bold;
+}

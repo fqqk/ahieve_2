@@ -1,0 +1,10 @@
+<div class="body-y-margin container w-75">
+  <h2 class="fw-bold text-center">All Users</h2>
+  <div class="row row-col mt-5 mb-5">
+    <% @users.each do |user| %>
+      <div class="col-xs-1 col-md-6 mt-5 mb-5">
+        <%= render user %>
+      </div>
+    <% end %>
+    </div>
+</div>

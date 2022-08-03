@@ -1,0 +1,55 @@
+html > body {
+  background-color: #D6DBDC;
+  color: #333;
+  font-family: verdana, arial, helvetica, sans-serif;
+  font-size: 0.8rem;
+  line-height: 18px;
+}
+
+
+.body-y-margin {
+  margin-top: 80px;
+  margin-bottom: 50px;
+}
+
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index:1;
+  width: 100%;
+  height: 70px;
+ nav {
+  z-index: 100;
+  padding: 1.5rem;
+  background-color: black;
+  p {
+    font-size: medium;
+    font-weight: bold;
+    margin: 0 15px;
+    .item {
+      color: #46BCDE;
+    }
+  }
+ }
+}
+
+.footer {
+  width: 100%;
+  background-color: black;
+  padding: 1rem;
+
+}
+
+.notice {
+  font-size: 1.2rem;
+  color:green;
+}
+
+.links-style {
+  font-size:medium;
+  :hover {
+    color: #46BCDE;
+  }
+}

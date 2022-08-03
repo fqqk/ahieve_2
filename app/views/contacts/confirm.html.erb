@@ -1,42 +1,50 @@
+<div class="body-y-margin container w-50">
+  <h1 class="fw-bold text-center">内容確認</h1>
+  <div class="mt-5">
 
-<h1>お問い合わせ内容確認</h1>
+  <div class="form-item">
+    <div class="d-flex">
+      <p class="form-label me-2">name:</p>
+      <p class="form-content d-block"><%= @contact.name %></p>
+    </div>
+  </div>
+
+  <div class="form-item">
+    <div class="d-flex">
+      <p class="form-label me-2">email:</p>
+      <p class="form-content d-block"><%= @contact.email %></p>
+    </div>
+  </div>
 
 
-<div>
-  <p>
-    <strong>名前:</strong>
-    <%= @contact.name %>
-  </p>
+  <div class="form-item">
+    <div class="d-flex">
+      <p class="form-label me-2">category:</p>
+      <p class="form-content d-block"><%= @contact.category %></p>
+    </div>
+  </div>
 
-  <p>
-    <strong>メールアドレス:</strong>
-    <%= @contact.email %>
-  </p>
+  <div class="form-item">
+    <div class="d-flex">
+      <p class="form-label me-2">content:</p>
+      <p class="form-content d-block"><%= @contact.content %></p>
+    </div>
+  </div>
 
-  <p>
-    <strong>カテゴリー:</strong>
-    <%= @contact.category %>
-  </p>
+    <%= form_for(@contact) do |f| %>
+      <%= f.hidden_field :name %>
+      <%= f.hidden_field :email %>
+      <%= f.hidden_field :category %>
+      <%= f.hidden_field :content %>
 
-  <p>
-    <strong>内容:</strong>
-    <%= @contact.content %>
-  </p>
-
-  <%= form_for(@contact) do |f| %>
-    <%= f.hidden_field :name %>
-    <%= f.hidden_field :email %>
-    <%= f.hidden_field :category %>
-    <%= f.hidden_field :content %>
-
-    <div><%= f.submit '送信' %></div>
-  <% end %>
-  <%= form_for @contact, url: back_path,data: { turbo: false } do |f| %>
-    <%= f.hidden_field :name %>
-    <%= f.hidden_field :email %>
-    <%= f.hidden_field :category %>
-    <%= f.hidden_field :content %>
-    <div><%= f.submit '入力画面に戻る' %></div>
-  <% end %>
-
+      <div class="float-end"><%= f.submit '送信', class:"btn btn-primary" %></div>
+    <% end %>
+    <%= form_for @contact, url: back_path,data: { turbo: false } do |f| %>
+      <%= f.hidden_field :name %>
+      <%= f.hidden_field :email %>
+      <%= f.hidden_field :category %>
+      <%= f.hidden_field :content %>
+      <div><%= f.submit '入力画面に戻る', class:"btn btn-secondary" %></div>
+    <% end %>
+  </div>
 </div>

@@ -1,15 +1,17 @@
-<p style="color: green"><%= notice %></p>
-
-<h1>Blogs</h1>
-
-<div id="blogs">
-  <% @blogs.each do |blog| %>
-    <%= render blog %>
-    <p>
-      <%= link_to "Show this blog", blog %>
-    </p>
-  <% end %>
+<div class="body-y-margin container w-75">
+  <p class="notice"><%= notice %></p>
+  <h1 class="fw-bold">Listing Blogs</h1>
+  <div id="new-blog-link">
+    <p class="links-style fw-bold"><%= link_to '新規ブログ作成', new_blog_path %></p>
+  </div>
+  <div class="row row-col">
+    <% @blogs.each do |blog| %>
+    <div class="d-flex flex-column col-xs-1 col-lg-6">
+      <%= render blog %>
+      <div class="show-btn d-flex justify-content-end">
+        <%= link_to 'Show', blog, class: 'btn btn-primary' %>
+      </div>
+    </div>
+    <% end %>
+  </div>
 </div>
-
-<%= link_to "New blog", new_blog_path %>
-<%= link_to "お問い合わせ", new_contact_path, class: 'btn btn-default' %>
