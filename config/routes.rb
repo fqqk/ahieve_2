@@ -3,9 +3,13 @@ Rails.application.routes.draw do
   devise_for :users
   post 'contacts/confirm', to: 'contacts#confirm', as: 'confirm'
   post 'contacts/back', to: 'contacts#back', as: 'back'
-  resources :users
+  resources :users do
+    resource :relationships, only: [:create, :destroy]
+    get :followings, on: :member #on: :memberでルーティングにidを含められる
+    get :followers, on: :member
+  end
+  # resources :relationships
   resources :contacts
-  resources :blogs
   resources :blogs do
     resources :comments, only:[:create, :destroy, :update, :edit]
   end

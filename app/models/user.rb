@@ -19,4 +19,8 @@ class User < ApplicationRecord
     .order(id: :asc)
     .includes(:blogs)
   }
+
+  def is_followed_by?(user)
+    passive_relationships.find_by(follower_id: user.id).present?
+  end
 end
