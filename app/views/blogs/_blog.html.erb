@@ -1,4 +1,5 @@
 <div class="blog-panel">
+   <p>by<%= blog.user.name %></p>
   <div class="d-flex align-items-baseline border-bottom border-dark">
     <h2 class="fw-bolder"><%= blog.title %></h2>
     <p class="ms-3"><%= blog.updated_at %></p>
@@ -6,4 +7,5 @@
   <div class="blogs-content-box">
     <p class="blogs-content"><%= blog.content %></p>
   </div>
+  <p class="text-primary"><%= "#{blog.comments.count} コメント" %></p>
 </div>

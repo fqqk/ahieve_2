@@ -5,11 +5,14 @@ class BlogsController < ApplicationController
 
   # GET /blogs or /blogs.json
   def index
-    @blogs = Blog.all
+    @blogs = Blog.index_all.page(params[:page])
   end
 
   # GET /blogs/1 or /blogs/1.json
-  def show; end
+  def show
+    @comment = Comment.new
+    @comments = @blog.comments.page(params[:page]).per(7).reverse_order
+  end
 
   # GET /blogs/new
   def new
@@ -22,6 +25,7 @@ class BlogsController < ApplicationController
   # POST /blogs or /blogs.json
   def create
     @blog = Blog.new(blog_params)
+    @blog.user_id = current_user.id #ブログを投稿した人 = 現在ログインしているユーザ
     respond_to do |format|
       if @blog.save
         NoticeMailer.sendmail_blog(@blog).deliver # 追記

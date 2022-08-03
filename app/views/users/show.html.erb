@@ -6,6 +6,11 @@
         <%= image_tag(@user.icon,width: "200px",height: "200px",  class: "rounded-circle") if @user.icon.attached? %>
      </div>
      <p class="mb-3 fw-bold"><%= @user.email%></p>
+     <% @user.blogs.each do |blog|%>
+     <div class="text-start w-25 m-auto">
+       <p><%= link_to blog.title, blog_path(blog.id) %></p>
+     </div>
+     <% end %>
     <p class="links-style d-inline"><%= link_to "back", users_path %></p>
 </div>
 </div>
