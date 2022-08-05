@@ -6,11 +6,19 @@
         <%= image_tag(@user.icon,width: "200px",height: "200px",  class: "rounded-circle") if @user.icon.attached? %>
      </div>
      <p class="mb-3 fw-bold"><%= @user.email%></p>
+     <% if @user != current_user%>
+       <% if @user.is_followed_by?(current_user)%>
+         <%= button_to "フォロー解除", user_relationships_path(@user), method: :delete, class:"btn btn-danger"%>
+       <% else %>
+         <%= button_to "フォロー", user_relationships_path(@user), method: :post, class:"btn btn-primary"%>
+       <% end %>
+     <% end %>
      <% @user.blogs.each do |blog|%>
      <div class="text-start w-25 m-auto">
        <p><%= link_to blog.title, blog_path(blog.id) %></p>
      </div>
      <% end %>
-    <p class="links-style d-inline"><%= link_to "back", users_path %></p>
+
+    <p class="links-style d-inline"><%= link_to "back", :back %></p>
 </div>
 </div>

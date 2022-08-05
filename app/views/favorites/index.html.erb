@@ -1,0 +1,17 @@
+<div class="body-y-margin container w-75">
+  <p class="notice"><%= notice %></p>
+  <h1 class="fw-bold">Your Favorite Blogs</h1>
+  <div id="new-blog-link">
+    <p class="links-style fw-bold"><%= link_to '新規ブログ作成', new_blog_path %></p>
+  </div>
+  <div class="row row-col">
+    <% @favorites.each do |favorite| %>
+      <div class="d-flex flex-column col-xs-1 col-lg-6">
+        <%= render partial: "favorite", locals: { favorite: favorite } %>
+        <div class="show-btn d-flex justify-content-end">
+          <%= link_to 'Show', blog_path(favorite.id), class: 'btn btn-primary' %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

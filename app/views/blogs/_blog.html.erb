@@ -8,4 +8,11 @@
     <p class="blogs-content"><%= blog.content %></p>
   </div>
   <p class="text-primary"><%= "#{blog.comments.count} コメント" %></p>
+  <% unless blog.user == current_user %>
+    <% if @favorite.present? %>
+      <%= button_to 'お気に入り解除する', favorite_path(@favorite), method: :delete, class: 'btn btn-danger', params:{blog_id: blog.id} %>
+    <% else %>
+      <%= button_to 'お気に入りする', favorites_path, class: 'btn btn-warning text-white', data: { turbo: false }, params:{blog_id: blog.id} %>
+    <% end %>
+  <% end %>
 </div>
